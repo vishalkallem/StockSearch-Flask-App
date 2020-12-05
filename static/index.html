@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="author" content="Vishal Kallem"/>
+        <meta name="description" content="CSCI 571 Web Technologies Homework 06">
+        <link rel="stylesheet" type="text/css" href="/static/main.css">
+        <script src="/static/app.js"></script>
+        <script src="https://code.highcharts.com/stock/highstock.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+        <title>Stock Search</title>
+    </head>
+    <body>
+        <div id="search-box">
+            <p id="header">
+                <b>Stock Search</b>
+            </p>
+            <form id="form" method="POST" onsubmit="return false;">
+                <label id="text" for="ticker">
+                    Enter Stock Ticker Symbol <span id="required">*</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                </label>
+                <input id="ticker" type="text" name="ticker" required/>
+                <br>
+                <div id="button-box">
+                    <input class="button" type="submit" value="Search" onClick="getStockSearchData()"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input class="button" type="button" value="Clear" onclick="resetInput()"/>
+                </div>
+            </form>
+        </div>
+        <hr id="search-box-separator">
+        <div id="data">
+            <div id="navbar">
+                <a id="outlook" class="tab active" href="" onclick="displayTab('outlook'); return false;">Company Outlook</a>
+                <a id="summary" class="tab" href="" onclick="displayTab('summary'); return false;">Stock Summary</a>
+                <a id="charts" class="tab" href="" onclick="displayTab('charts'); return false;">Charts</a>
+                <a id="news" class="tab" href="" onclick="displayTab('news'); return false;">Latest News</a>
+            </div>
+            <div id="display"></div>
+        </div>
+    </body>
+</html>
